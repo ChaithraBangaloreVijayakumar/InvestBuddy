@@ -64,6 +64,11 @@ public class MainPage extends JFrame {
 	return compoundedVal;
 	}
 	
+	// FIXME the returns are calculated incorrectly
+	// usually the money you make in the first year will contribute in the following years
+	// it should look something like this double returnsWithoutDiv = investmentAmount * Math.pow(1 + returnsPercentWithoutDiv, years);
+	// this applies to all the cases below as well
+
 	//2.1.stocks without divident
 	public double StocksWithOutDiv(double investmentAmount, double years) {
 	double returnsWithoutDiv = investmentAmount+(investmentAmount*years*returnsPercentWithoutDiv);
