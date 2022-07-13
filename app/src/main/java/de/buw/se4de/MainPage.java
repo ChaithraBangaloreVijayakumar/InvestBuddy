@@ -66,32 +66,32 @@ public class MainPage extends JFrame {
 	
 	//2.1.stocks without divident
 	public double StocksWithOutDiv(double investmentAmount, double years) {
-	double returnsWithoutDiv = investmentAmount*Math.pow(1+returnsPercentWithoutDiv,years);
+	double returnsWithoutDiv = investmentAmount+(investmentAmount*years*returnsPercentWithoutDiv);
 	return returnsWithoutDiv;}
 
 	//2.2.stocks with divident
-	public double StocksWithDiv(double investmentAmount, double years) {
-	double returnsWithDiv = investmentAmount*Math.pow(1+returnsPercentWithDiv,years);
+	public double StocksWithDiv(double investmentAmount, double year) {
+	double returnsWithDiv = investmentAmount+(investmentAmount*year*returnsPercentWithDiv);
 	return returnsWithDiv;}
 	
 	//3.Cryptos
 	public double Cryptos(double investmentAmount, double years) {
-	double returnAmount = investmentAmount*Math.pow(1+cryptoReturns,years);
+	double returnAmount = investmentAmount+(investmentAmount*years*cryptoReturns);
 	return returnAmount;}
 	
 	//4.bond
 	public double Bonds(double investmentAmount, double years) {
-	double returnAmount = investmentAmount*Math.pow(1+bondsReturns,years);
+	double returnAmount = investmentAmount+(investmentAmount*years*bondsReturns);
 	return returnAmount; }
 
 	//5.ETF
 	public double ETF(double investmentAmount, double years) {
-	double returnAmount = investmentAmount*Math.pow(1+ETFReturns,years);
+	double returnAmount = investmentAmount+(investmentAmount*years*ETFReturns);
 	return returnAmount;}
 
 	//6.P2P
 	public double P2P(double investmentAmount, double years) {
-	double returnAmount = investmentAmount*Math.pow(1+P2PReturns,years);
+	double returnAmount = investmentAmount+(investmentAmount*years*P2PReturns);
 	return returnAmount;}
 
 	
@@ -543,49 +543,18 @@ public class MainPage extends JFrame {
 		Yes.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
-					String b = MainPage.getAmount().getText();
-					String c = MainPage.getYears().getText();
-					
-					if(b.isBlank()||c.isBlank())
-					{
-						JOptionPane.showMessageDialog(null,"Please enter valid input for amount and years (only numbers)");
-						dispose();
-						MainPage frame = new MainPage();
-						frame.setVisible(true);
-						frame.setLocationRelativeTo(null);
-					}
-					else
-					{
-						double amount = Double.parseDouble(b);
-						double year = Double.parseDouble(c);
-
-						if(amount<0||amount>2000000||year<0||year>100)
-						{
-							JOptionPane.showMessageDialog(null,"Please enter input for amount and years in the specified range (only numbers)");
-							dispose();
-							MainPage frame = new MainPage();
-							frame.setVisible(true);
-							frame.setLocationRelativeTo(null);
-						}
-						else if(amount>0||amount<=2000000||year>0||year<=100)
-						{
-							dispose();
-							EndPageYes a = new EndPageYes();
-							a.setVisible(true);
-							a.setLocationRelativeTo(null);
-							File soundFile = new File("src\\main\\resources\\jigglejiggle.wav");
-							AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);
-			         		// Get a sound clip resource.
-			         		Clip clip = AudioSystem.getClip();
-			         		// Open audio clip and load samples from the audio input stream.
-			         		clip.open(audioIn);
-			         		clip.start();
-						}
-					}
-					
-				}
-				catch(NumberFormatException ex2) {
-					ex2.printStackTrace();
+					dispose();
+					EndPageYes a = new EndPageYes();
+					a.setVisible(true);
+					a.setLocationRelativeTo(null);
+					File soundFile = new File("src\\main\\resources\\jigglejiggle.wav");
+					AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);
+			         // Get a sound clip resource.
+			         Clip clip = AudioSystem.getClip();
+			         // Open audio clip and load samples from the audio input stream.
+			         clip.open(audioIn);
+			         clip.start();
+			        
 				}
 			       catch (UnsupportedAudioFileException Ex) {
 			         Ex.printStackTrace();
