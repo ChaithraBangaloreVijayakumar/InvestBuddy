@@ -70,33 +70,33 @@ public class MainPage extends JFrame {
 	// this applies to all the cases below as well
 
 	//2.1.stocks without divident
-	public double StocksWithOutDiv(double investmentAmount, double years) {
-	double returnsWithoutDiv = investmentAmount+(investmentAmount*years*returnsPercentWithoutDiv);
+	public static double StocksWithOutDiv(double investmentAmount, double years) {
+        double returnsWithoutDiv =  investmentAmount * Math.pow(1 + returnsPercentWithoutDiv, years);
 	return returnsWithoutDiv;}
 
 	//2.2.stocks with divident
-	public double StocksWithDiv(double investmentAmount, double year) {
-	double returnsWithDiv = investmentAmount+(investmentAmount*year*returnsPercentWithDiv);
+	public static double StocksWithDiv(double investmentAmount, double year) {
+	double returnsWithDiv = investmentAmount * Math.pow(1 + returnsPercentWithDiv, year);
 	return returnsWithDiv;}
 	
 	//3.Cryptos
-	public double Cryptos(double investmentAmount, double years) {
-	double returnAmount = investmentAmount+(investmentAmount*years*cryptoReturns);
+	public static double Cryptos(double investmentAmount, double years) {
+	double returnAmount = investmentAmount * Math.pow(1 + cryptoReturns, years);
 	return returnAmount;}
 	
 	//4.bond
-	public double Bonds(double investmentAmount, double years) {
-	double returnAmount = investmentAmount+(investmentAmount*years*bondsReturns);
+	public static double Bonds(double investmentAmount, double years) {
+	double returnAmount = investmentAmount * Math.pow(1 + bondsReturns, years);
 	return returnAmount; }
 
 	//5.ETF
-	public double ETF(double investmentAmount, double years) {
-	double returnAmount = investmentAmount+(investmentAmount*years*ETFReturns);
+	public static double ETF(double investmentAmount, double years) {
+	double returnAmount = investmentAmount * Math.pow(1 + ETFReturns, years);
 	return returnAmount;}
 
 	//6.P2P
-	public double P2P(double investmentAmount, double years) {
-	double returnAmount = investmentAmount+(investmentAmount*years*P2PReturns);
+	public static double P2P(double investmentAmount, double years) {
+	double returnAmount = investmentAmount * Math.pow(1 + P2PReturns, years);
 	return returnAmount;}
 
 	
