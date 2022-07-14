@@ -255,8 +255,8 @@ public class MainPage extends JFrame {
 	            int l = value.length();
 	            if (ke.getKeyChar() >= '0' && ke.getKeyChar() <= '9' || ke.getKeyChar() <= '.' ) {
 	            	Years.setEditable(true);
-	               
-	            } else {
+	            } 
+				else {
 	            	Years.setEditable(false);
 	            	JOptionPane.showMessageDialog(null,"Please enter valid input for years (only numbers)");
 					MainPage a = new MainPage();
